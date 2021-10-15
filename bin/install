@@ -38,7 +38,7 @@ _get_platform() {
 install() {
   local -r version=$1
   local -r install_path=$2
-  local -r tar_install_path="$install_path/kics-v$version.tgz"
+  local -r tar_install_path="$install_path/kics-v$version.tar.gz"
   local -r bin_install_path="$install_path/bin"
   local -r platform="$(_get_platform)"
   local arch
