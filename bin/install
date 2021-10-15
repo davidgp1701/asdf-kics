@@ -44,7 +44,6 @@ install() {
   local arch
   arch="$(_get_arch)"
   local -r download_url="https://github.com/Checkmarx/kics/releases/download/v${version}/kics_${version}_${platform}_${arch}.tar.gz"
-  local -r bin_path="$bin_install_path/kics"
 
   mkdir -p "$bin_install_path"
   local tmp_dir
@@ -54,10 +53,12 @@ install() {
   curl -Ls "$download_url" -o "$tar_install_path"
   tar -xf "$tar_install_path" -C "$tmp_dir"
 
-  cp -r "${tmp_dir}/" "$bin_path"
-  chmod +x "$bin_path/kics"
+  cp -r "${tmp_dir}/assets" "$bin_install_path"
+  cp "${tmp_dir}/kics" "$bin_install_path"
+  cp "${tmp_dir}/LICENSE" "$bin_install_path"
+  chmod +x "$bin_install_path/kics"
   rm -rf "$tar_install_path"
   rm -rf "$tmp_dir"
-  chmod +x "$bin_path"
+  chmod +x "$bin_install_path/kics"
 }
 
