@@ -36,6 +36,7 @@ _get_platform() {
 }
 
 install() {
+  set -x
   local -r version=$1
   local -r install_path=$2
   local -r tar_install_path="$install_path/kics-v$version.tar.gz"
