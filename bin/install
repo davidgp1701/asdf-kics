@@ -21,7 +21,7 @@ _get_arch() {
   arch=$(uname -m)
   case $arch in
   # Note: Tool is only provided in AMD64 and ARM64 for the moment
-  armv*) 
+  armv*)
     arch="arm64"
     ;;
   x86_64)
@@ -61,4 +61,3 @@ install() {
   chmod +x "$bin_path"
 }
 
-install "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
