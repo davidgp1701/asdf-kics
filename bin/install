@@ -4,17 +4,17 @@ set -euo pipefail
 
 # Based on: https://github.com/luizm/asdf-shellcheck/blob/master/bin/install
 
-ASDF_INSTALL_TYPE=${ASDF_INSTALL_TYPE:-version  }
+# ASDF_INSTALL_TYPE=${ASDF_INSTALL_TYPE:-version  }
 
-test -n "$ASDF_INSTALL_VERSION" || {
-  echo 'Missing ASDF_INSTALL_VERSION'
-  exit 1
-}
+# test -n "$ASDF_INSTALL_VERSION" || {
+#   echo 'Missing ASDF_INSTALL_VERSION'
+#   exit 1
+# }
 
-test -n "$ASDF_INSTALL_PATH" || {
-  echo 'Missing ASDF_INSTALL_PATH'
-  exit 1
-}
+# test -n "$ASDF_INSTALL_PATH" || {
+#   echo 'Missing ASDF_INSTALL_PATH'
+#   exit 1
+# }
 
 _get_arch() {
   local arch
@@ -25,7 +25,7 @@ _get_arch() {
     arch="arm64"
     ;;
   x86_64)
-    arch="amd64"
+    arch="x64"
     ;;
   esac
   echo "$arch"
@@ -54,7 +54,7 @@ install() {
   curl -Ls "$download_url" -o "$tar_install_path"
   tar -xf "$tar_install_path" -C "$tmp_dir"
 
-  cp -r "${tmp_dir}/*" "$bin_path"
+  cp -r "${tmp_dir}/" "$bin_path"
   chmod +x "$bin_path/kics"
   rm -rf "$tar_install_path"
   rm -rf "$tmp_dir"
