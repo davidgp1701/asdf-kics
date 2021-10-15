@@ -54,7 +54,8 @@ install() {
   curl -Ls "$download_url" -o "$tar_install_path"
   tar -xf "$tar_install_path" -C "$tmp_dir"
 
-  cp -r "${tmp_dir}/kics" "$bin_path"
+  cp -r "${tmp_dir}/*" "$bin_path"
+  chmod +x "$bin_path/kics"
   rm -rf "$tar_install_path"
   rm -rf "$tmp_dir"
   chmod +x "$bin_path"
