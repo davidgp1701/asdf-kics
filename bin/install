@@ -63,3 +63,4 @@ install() {
   chmod +x "$bin_install_path/kics"
 }
 
+install "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
